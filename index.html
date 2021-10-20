@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Demo</title>
+    <link href="styles.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  </head>
+  <body>
+    <h1>Summary for patient's 5 traits</h1>
+    <p>
+      This page allows you to view the calculated trait results for one of the
+      patients who took the survey.
+    </p>
+    <form>
+      <label for="fname">Please enter the ID of the patient:</label><br />
+      <input type="text" id="fname" name="fname" /><br />
+      <input type="submit" value="Submit" id="submit" />
+    </form>
+    <table style="width: 25%" class="table">
+      <tr>
+        <td class="square">Extroversion</td>
+        <td class="square">2.5</td>
+      </tr>
+      <tr>
+        <td class="square">Opennes</td>
+        <td class="square">4.3</td>
+      </tr>
+      <tr>
+        <td class="square">Neuroticism</td>
+        <td class="square">1.1</td>
+      </tr>
+      <tr>
+        <td class="square">Consciousness</td>
+        <td class="square">5.0</td>
+      </tr>
+      <tr>
+        <td class="square">Agreeableness</td>
+        <td class="square">4.2</td>
+      </tr>
+    </table>
+
+    <div id="hisdiv"><canvas id="histogram"></canvas></div>
+  </body>
+  <script>
+    // set the dimensions and margins of the graph
+    const ctx = document.getElementById("histogram").getContext("2d");
+
+    const chart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: [
+          "Extroversion",
+          "Opennes",
+          "Neuroticism",
+          "Consciousness",
+          "Agreeableness",
+        ],
+        datasets: [
+          {
+            label: "Trait Results",
+            data: [2.5, 4.3, 1.1, 5.0, 4.2],
+            backgroundColor: "#c70039",
+          },
+        ],
+      },
+      options: {
+        scales: {
+          xAxes: [
+            {
+              display: false,
+              barPercentage: 1.3,
+              ticks: {
+                max: 3,
+              },
+            },
+            {
+              display: true,
+              ticks: {
+                autoSkip: false,
+                max: 5,
+              },
+            },
+          ],
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: false,
+              },
+            },
+          ],
+        },
+      },
+    });
+  </script>
+</html>
