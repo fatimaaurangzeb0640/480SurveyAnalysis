@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Demo</title>
+    <link href="styles.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  </head>
+  <body>
+    <h2 class="back"><a href="index.html">Back</a></h2>
+    <p>Choose a survey question to see the results:</p>
+    <select name="survey" id="survey">
+      <option value="EXT1">EXT1</option>
+      <option value="EXT2">EXT2</option>
+      <option value="EXT3">EXT3</option>
+      <option value="EXT4">EXT4</option>
+      <option value="EXT5">EXT5</option>
+      <option value="EXT6">EXT6</option>
+      <option value="EXT7">EXT7</option>
+      <option value="EXT8">EXT8</option>
+      <option value="EXT9">EXT9</option>
+      <option value="EXT10">EXT10</option>
+      <option value="EST1">EST1</option>
+      <option value="EST2">EST2</option>
+      <option value="EST3">EST3</option>
+      <option value="EST4">EST4</option>
+      <option value="EST5">EST5</option>
+      <option value="EST6">EST6</option>
+      <option value="EST7">EST7</option>
+      <option value="EST8">EST8</option>
+      <option value="EST9">EST9</option>
+      <option value="EST10">EST10</option>
+      <option value="AGR1">AGR1</option>
+      <option value="AGR2">AGR2</option>
+      <option value="AGR3">AGR3</option>
+      <option value="AGR4">AGR4</option>
+      <option value="AGR5">AGR5</option>
+      <option value="AGR6">AGR6</option>
+      <option value="AGR7">AGR7</option>
+      <option value="AGR8">AGR8</option>
+      <option value="AGR9">AGR9</option>
+      <option value="AGR10">AGR10</option>
+      <option value="CSN1">CSN1</option>
+      <option value="CSN2">CSN2</option>
+      <option value="CSN3">CSN3</option>
+      <option value="CSN4">CSN4</option>
+      <option value="CSN5">CSN5</option>
+      <option value="CSN6">CSN6</option>
+      <option value="CSN7">CSN7</option>
+      <option value="CSN8">CSN8</option>
+      <option value="CSN9">CSN9</option>
+      <option value="CSN10">CSN10</option>
+      <option value="OPN1">OPN1</option>
+      <option value="OPN2">OPN2</option>
+      <option value="OPN3">OPN3</option>
+      <option value="OPN4">OPN4</option>
+      <option value="OPN5">OPN5</option>
+      <option value="OPN6">OPN6</option>
+      <option value="OPN7">OPN7</option>
+      <option value="OPN8">OPN8</option>
+      <option value="OPN9">OPN9</option>
+      <option value="OPN10">OPN10</option>
+    </select>
+
+    <div id="hisdiv"><canvas id="histogram"></canvas></div>
+
+    <script>
+      // set the dimensions and margins of the graph
+      const ctx = document.getElementById("histogram").getContext("2d");
+
+      const chart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["1", "2", "3", "4", "5"],
+          datasets: [
+            {
+              label: "Survey Results",
+              data: [6300, 7700, 3900, 8100, 2300],
+              backgroundColor: "#FFC300",
+            },
+          ],
+        },
+        options: {
+          scales: {
+            xAxes: [
+              {
+                display: false,
+                barPercentage: 1.3,
+                ticks: {
+                  max: 3,
+                },
+              },
+              {
+                display: true,
+                ticks: {
+                  autoSkip: false,
+                  max: 5,
+                },
+              },
+            ],
+            yAxes: [
+              {
+                ticks: {
+                  beginAtZero: false,
+                },
+              },
+            ],
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

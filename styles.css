@@ -38,3 +38,13 @@ form {
   width: 40%;
   margin-top: 3rem;
 }
+
+a {
+  text-decoration: none;
+}
+
+#survey {
+  text-align: center;
+  margin-left: 17%;
+  width: 10%;
+}
